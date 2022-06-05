@@ -1,59 +1,148 @@
-import { lazy } from 'react';
+import {lazy} from 'react';
 
 // project imports
 import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
 
-// dashboard routing
-const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
+// Main routes
+const UsersPage = Loadable(lazy(() => import('views/users')));
+const RolesPage = Loadable(lazy(() => import('views/roles')));
+const BlogsCategoriesPage = Loadable(lazy(() => import('views/blogs-categories')));
+const AddBlogPage = Loadable(lazy(() => import('views/add-blog')));
+const BlogsCommentsPage = Loadable(lazy(() => import('views/blog-comments')));
+const FaqPage = Loadable(lazy(() => import('views/faq')));
+const SeoPage = Loadable(lazy(() => import('views/seo')));
+const SettingsPage = Loadable(lazy(() => import('views/settings')));
+const CollegePage = Loadable(lazy(() => import('views/colleges')));
+const ReviewsPage = Loadable(lazy(() => import('views/reviews')));
+const BlogsPage = Loadable(lazy(() => import('views/blogs')));
+const AccountPage = Loadable(lazy(() => import('views/account')));
+const CollegesLogos = Loadable(lazy(() => import('views/colleges/Logos')));
+const Subpages = Loadable(lazy(() => import('views/colleges/Subpages')));
+const Applications = Loadable(lazy(() => import('views/applications')));
+const Profile = Loadable(lazy(() => import('views/profile')));
 
-// utilities routing
-const UtilsTypography = Loadable(lazy(() => import('views/utilities/Typography')));
-const UtilsColor = Loadable(lazy(() => import('views/utilities/Color')));
-const UtilsShadow = Loadable(lazy(() => import('views/utilities/Shadow')));
-const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialIcons')));
-const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons')));
-
-// sample page routing
-const SamplePage = Loadable(lazy(() => import('views/sample-page')));
+// Data Routes
+const StatePage = Loadable(lazy(() => import('views/data/state')));
+const CityPage = Loadable(lazy(() => import('views/data/city')));
+const CoursePage = Loadable(lazy(() => import('views/data/course')));
+const ExamPage = Loadable(lazy(() => import('views/data/exam')));
+const AffiliatedPage = Loadable(lazy(() => import('views/data/affiliated')));
+const StreamPage = Loadable(lazy(() => import('views/data/stream')));
+const ProgramTypePage = Loadable(lazy(() => import('views/data/program-type')));
+const CollegeTypePage = Loadable(lazy(() => import('views/data/college-type')));
+const CourseTypePage = Loadable(lazy(() => import('views/data/course-type')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
-    path: '/',
-    element: <MainLayout />,
+    path: '/admin',
+    element: <MainLayout/>,
     children: [
         {
-            path: '/',
-            element: <DashboardDefault />
+            path: '/profile',
+            element: <Profile />
         },
         {
-            path: '/dashboard/default',
-            element: <DashboardDefault />
+            path: '/users',
+            element: <UsersPage/>
         },
         {
-            path: '/utils/util-typography',
-            element: <UtilsTypography />
+            path: '/account',
+            element: <AccountPage/>
         },
         {
-            path: '/utils/util-color',
-            element: <UtilsColor />
+            path: '/roles',
+            element: <RolesPage/>
         },
         {
-            path: '/utils/util-shadow',
-            element: <UtilsShadow />
+            path: '/add-blog',
+            element: <AddBlogPage/>
         },
         {
-            path: '/icons/tabler-icons',
-            element: <UtilsTablerIcons />
+            path: '/blogs-categories',
+            element: <BlogsCategoriesPage/>
         },
         {
-            path: '/icons/material-icons',
-            element: <UtilsMaterialIcons />
+            path: '/comments',
+            element: <BlogsCommentsPage/>
         },
         {
-            path: '/sample-page',
-            element: <SamplePage />
+            path: '/faqs',
+            element: <FaqPage/>
+        },
+        {
+            path: '/seo',
+            element: <SeoPage/>
+        },
+        {
+            path: '/settings',
+            element: <SettingsPage/>
+        },
+        {
+            path: '/colleges',
+            element: <CollegePage/>
+        },
+        {
+            path: '/subpages',
+            element: <Subpages />
+        },
+        {
+            path: '/logos',
+            element: <CollegesLogos/>
+        },
+        {
+            path: '/reviews',
+            element: <ReviewsPage/>
+        },
+        {
+            path: '/blogs',
+            element: <BlogsPage/>
+        },
+        {
+            path: '/applications',
+            element: <Applications/>
+        },
+        {
+            path: '/data',
+            children: [
+                {
+                    path: '/state',
+                    element: <StatePage/>
+                },
+                {
+                    path: '/city',
+                    element: <CityPage/>
+                },
+                {
+                    path: '/course',
+                    element: <CoursePage/>
+                },
+                {
+                    path: '/entrance-exam',
+                    element: <ExamPage/>
+                },
+                {
+                    path: '/affiliated',
+                    element: <AffiliatedPage/>
+                },
+                {
+                    path: '/stream',
+                    element: <StreamPage/>
+                },
+                {
+                    path: '/program-type',
+                    element: <ProgramTypePage/>
+                },
+                {
+                    path: '/college-type',
+                    element: <CollegeTypePage/>
+                },
+                {
+                    path: '/course-type',
+                    element: <CourseTypePage/>
+                }
+            ]
         }
     ]
 };

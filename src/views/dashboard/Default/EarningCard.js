@@ -10,13 +10,10 @@ import MainCard from 'ui-component/cards/MainCard';
 import SkeletonEarningCard from 'ui-component/cards/Skeleton/EarningCard';
 
 // assets
-import EarningIcon from 'assets/images/icons/earning.svg';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import GetAppTwoToneIcon from '@mui/icons-material/GetAppOutlined';
-import FileCopyTwoToneIcon from '@mui/icons-material/FileCopyOutlined';
-import PictureAsPdfTwoToneIcon from '@mui/icons-material/PictureAsPdfOutlined';
-import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
     backgroundColor: theme.palette.secondary.dark,
@@ -56,7 +53,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 // ===========================|| DASHBOARD DEFAULT - EARNING CARD ||=========================== //
 
-const EarningCard = ({ isLoading }) => {
+const EarningCard = ({ isLoading, title, data, icon, bgColor }) => {
     const theme = useTheme();
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -74,7 +71,7 @@ const EarningCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonEarningCard />
             ) : (
-                <CardWrapper border={false} content={false}>
+                <CardWrapper style={{ backgroundColor: bgColor }} border={false} content={false}>
                     <Box sx={{ p: 2.25 }}>
                         <Grid container direction="column">
                             <Grid item>
@@ -89,7 +86,8 @@ const EarningCard = ({ isLoading }) => {
                                                 mt: 1
                                             }}
                                         >
-                                            <img src={EarningIcon} alt="Notification" />
+                                             {/* <img src={CollegeIcon} alt="Notification" /> */}
+                                             <FontAwesomeIcon icon={icon} />
                                         </Avatar>
                                     </Grid>
                                     <Grid item>
@@ -125,9 +123,10 @@ const EarningCard = ({ isLoading }) => {
                                             }}
                                         >
                                             <MenuItem onClick={handleClose}>
-                                                <GetAppTwoToneIcon sx={{ mr: 1.75 }} /> Import Card
+                                                <GetAppTwoToneIcon sx={{ mr: 1.75 }} />
+                                                Export data to CSV
                                             </MenuItem>
-                                            <MenuItem onClick={handleClose}>
+                                            {/* <MenuItem onClick={handleClose}>
                                                 <FileCopyTwoToneIcon sx={{ mr: 1.75 }} /> Copy Data
                                             </MenuItem>
                                             <MenuItem onClick={handleClose}>
@@ -135,7 +134,7 @@ const EarningCard = ({ isLoading }) => {
                                             </MenuItem>
                                             <MenuItem onClick={handleClose}>
                                                 <ArchiveTwoToneIcon sx={{ mr: 1.75 }} /> Archive File
-                                            </MenuItem>
+                                            </MenuItem> */}
                                         </Menu>
                                     </Grid>
                                 </Grid>
@@ -144,7 +143,7 @@ const EarningCard = ({ isLoading }) => {
                                 <Grid container alignItems="center">
                                     <Grid item>
                                         <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                            $500.00
+                                            {data}
                                         </Typography>
                                     </Grid>
                                     <Grid item>
@@ -169,7 +168,7 @@ const EarningCard = ({ isLoading }) => {
                                         color: theme.palette.secondary[200]
                                     }}
                                 >
-                                    Total Earning
+                                    {title}
                                 </Typography>
                             </Grid>
                         </Grid>

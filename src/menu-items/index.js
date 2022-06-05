@@ -1,12 +1,17 @@
-import dashboard from './dashboard';
-import pages from './pages';
-import utilities from './utilities';
-import other from './other';
+import managment from './managment';
+import blog from './blog';
+import site from './site';
+import data from './data';
+import colleges from './colleges';
+
+import parsePermissions from 'utils/parsePermissions';
 
 // ==============================|| MENU ITEMS ||============================== //
 
+const authenticatedItems = parsePermissions([managment, blog, colleges, site, data]);
+
 const menuItems = {
-    items: [dashboard, pages, utilities, other]
+    items: authenticatedItems
 };
 
 export default menuItems;

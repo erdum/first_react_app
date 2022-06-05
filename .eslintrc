@@ -24,7 +24,7 @@
     "rules": {
         "react/jsx-filename-extension": 0,
         "no-param-reassign": 0,
-        "react/prop-types": 1,
+        "react/prop-types": "off",
         "react/require-default-props": 0,
         "react/no-array-index-key": 0,
         "react/jsx-props-no-spreading": 0,
@@ -40,17 +40,7 @@
                 "ignoreRestSiblings": false
             }
         ],
-        "prettier/prettier": [
-            2,
-            {
-                "bracketSpacing": true,
-                "printWidth": 140,
-                "singleQuote": true,
-                "trailingComma": "none",
-                "tabWidth": 4,
-                "useTabs": false,
-                "endOfLine": "auto"
-            }
-        ]
+        "prettier/prettier": 0,
+        "no-alert": 0
     }
 }

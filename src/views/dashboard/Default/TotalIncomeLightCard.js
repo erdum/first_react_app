@@ -10,6 +10,8 @@ import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // assets
 import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
@@ -39,7 +41,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 // ==============================|| DASHBOARD - TOTAL INCOME LIGHT CARD ||============================== //
 
-const TotalIncomeLightCard = ({ isLoading }) => {
+const TotalIncomeLightCard = ({ isLoading, title, data, icon }) => {
     const theme = useTheme();
 
     return (
@@ -61,7 +63,8 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                             color: theme.palette.warning.dark
                                         }}
                                     >
-                                        <StorefrontTwoToneIcon fontSize="inherit" />
+                                        {/* <StorefrontTwoToneIcon fontSize="inherit" /> */}
+                                        <FontAwesomeIcon icon={icon} />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText
@@ -70,7 +73,7 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                         mt: 0.45,
                                         mb: 0.45
                                     }}
-                                    primary={<Typography variant="h4">$203k</Typography>}
+                                    primary={<Typography variant="h4">{data}</Typography>}
                                     secondary={
                                         <Typography
                                             variant="subtitle2"
@@ -79,7 +82,7 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                                 mt: 0.5
                                             }}
                                         >
-                                            Total Income
+                                            {title}
                                         </Typography>
                                     }
                                 />
